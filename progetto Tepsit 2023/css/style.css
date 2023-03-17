@@ -1,0 +1,20 @@
+body {
+    background-image: url("../immagini/terrenoBaseSfondoOpaco.jpg");
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+center {
+    height: 100vh;
+    width: 100vw;
+}
+
+.gameContainer {
+    background-image: url("../immagini/terrenoBase.jpg");
+    backdrop-filter: blur(60px);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 100%;
+}
