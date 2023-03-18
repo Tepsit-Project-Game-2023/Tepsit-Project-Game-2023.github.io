@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     var gameContainer = $(".gameContainer");
+    var imgTitle = $("#imgTitle");
 
     //blur the div gameContainer on load 
     gameContainer.css("filter", "blur(10px)");
@@ -12,5 +13,13 @@ $(document).ready(function () {
             opacity: "0",
         }, 1000);
     });
+
+    imgTitle.click(function () {
+        $(gameContainer).css("filter", "blur(0px)");
+        $(this).fadeOut({
+            opacity: "0",
+        }, 1000);
+    });
+
 
 });
