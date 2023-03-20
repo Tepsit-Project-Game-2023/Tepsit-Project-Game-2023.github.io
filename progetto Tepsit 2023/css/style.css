@@ -29,3 +29,15 @@ center {
     transform: translate(-50%, -50%);
     z-index: 5;
 }
+
+.buildMenu {
+    
+    background-image: url("../immagini/gameHammer.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
