@@ -1,4 +1,4 @@
 ---
 layout: forward
-target: index.html
+target: http://example.com/
 ---
