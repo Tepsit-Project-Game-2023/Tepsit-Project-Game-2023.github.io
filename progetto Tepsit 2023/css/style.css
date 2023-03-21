@@ -1,8 +1,6 @@
 body {
-    background-image: url("../immagini/terrenoBaseSfondoOpaco.jpg");
+    background: linear-gradient(to bottom, #000429, #01074F, #056926);
     overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
 }
 
 center {
@@ -20,9 +18,7 @@ center {
 }
 
 #imgTitle {
-    width: 45%;
-    height: 45%;
-
+    margin-top: 5%;
     position: absolute;
     top: 30%;
     left: 50%;
