@@ -1,15 +1,15 @@
 $(document).ready(function () {
 
-    var canvas = $(".gameContainer");
+    var canvas = $(".gameContainer").get(0);    
     var ctx = canvas.getContext("2d");
     
     var imgTitle = $("#imgTitle");
 
     //blur the div gameContainer on load 
-    gameContainer.css("filter", "blur(10px)");
+    ctx.css("filter", "blur(10px)");
 
     //onclick toogle blur
-    gameContainer.click(function () {
+    ctx.click(function () {
         $(this).css("filter", "blur(0px)");
         $("#imgTitle").fadeOut({
             opacity: "0",
