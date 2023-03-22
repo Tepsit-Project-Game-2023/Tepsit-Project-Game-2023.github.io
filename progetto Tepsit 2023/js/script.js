@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    var gameContainer = $(".gameContainer");
+    var canvas = $(".gameContainer");
+    var ctx = canvas.getContext("2d");
+    
     var imgTitle = $("#imgTitle");
 
     //blur the div gameContainer on load 
@@ -20,6 +22,4 @@ $(document).ready(function () {
             opacity: "0",
         }, 1000);
     });
-
-
 });
