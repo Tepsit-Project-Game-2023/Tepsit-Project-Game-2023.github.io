@@ -20,19 +20,44 @@ center {
 #imgTitle {
     margin-top: 5%;
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
 }
 
-.buildMenu {
-    background-image: url("../immagini/gameHammer.png");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+#title {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    font-size: 60px;
+    color:gainsboro;
+    cursor: default;
+    font-family: 'Press Start 2P', cursive;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#settingButton {
+    position: absolute;
+    top: 92%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
     cursor: pointer;
-    outline: none;
 }
