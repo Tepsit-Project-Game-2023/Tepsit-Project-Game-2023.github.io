@@ -61,3 +61,58 @@ center {
     height: 80px;
     cursor: pointer;
 }
+
+#buildButton {
+    position: absolute;
+    top: 92%;
+    left: 84%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+
+    border: 2px solid black;
+    border-radius: 25%;
+    background-color: #6f6b6b;
+}
+
+#goldCoin {
+    width: 30px;
+    height: 30px;
+    padding: 0px 10px;
+}
+
+#resourcesBarFiller {
+    width: 275px;
+    height: 30px;
+    position: absolute;
+    top: 7%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    border: 3px solid #000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    z-index: 1;
+}
+
+#opacityBackgroundBarFiller {
+    width: 275px;
+    height: 30px;
+    position: absolute;
+    top: 7%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    background-color: #ddd;
+    border-radius: 8px;
+    opacity: 0.2;
+}
+
+#resourcesValue {
+    cursor: default;
+    color: white;
+    font-size: 22px;
+}
