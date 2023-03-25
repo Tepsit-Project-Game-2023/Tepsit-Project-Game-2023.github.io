@@ -9,7 +9,8 @@ $(document).ready(function () {
     var buildButton = $("#buildButton");
     var resourcesBarFiller = $("#resourcesBarFiller");
     var opacityBackgroundBarFiller = $("#opacityBackgroundBarFiller");
-    var progressBar = $("#progressBar")
+    var progressBar = $("#progressBar");
+    var gameButtonMenu = $(".gameButtonMenu");
     
     //blur the gameContainer on load 
     gameContainer.css("filter", "blur(5px)");
@@ -60,6 +61,7 @@ $(document).ready(function () {
         resourcesBarFiller.css("opacity", "0");
         opacityBackgroundBarFiller.css("opacity", "0");
         progressBar.css("opacity", "0");
+        // gameButtonMenu.css({"opacity": "0", "z-index": "-1"});
     }
 
     //show all the game buttons
@@ -74,7 +76,7 @@ $(document).ready(function () {
             opacity: "1",
         }, 500);
         opacityBackgroundBarFiller.animate({
-            opacity: "0.2",
+            opacity: "0.3",
         }, 500);
         progressBar.animate({
             opacity: "1",

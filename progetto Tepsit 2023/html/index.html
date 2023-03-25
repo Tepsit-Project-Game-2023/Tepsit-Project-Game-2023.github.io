@@ -13,20 +13,39 @@
 
     <body>
         <center>
+            <!-- Game container -->
             <div class="gameContainer"></div>
-            <img src="../immagini/logoDefinitivo.png" id="imgTitle">
+
+            <!-- Main apperance of the page onload -->
+            <!-- (draggable = "false") == you can't drag images, they're locked -->
+            <img src="../immagini/logoDefinitivo.png" id="imgTitle" draggable="false">
             <h1 id="title">Click to begin</h1>
 
-            <img src="../immagini/settingsButton.png" id="settingButton">
-            <img src="../immagini/gameHammer.png" id="buildButton">
+            <!-- Images for the game buttons that appears on begin click -->
+            <img src="../immagini/settingsButton.png" id="settingButton" draggable="false">
+            <img src="../immagini/gameHammer.png" id="buildButton" draggable="false">
+
+            <!-- Div for the resources w/ only the structure of it (w/out the opaci) -->
             <div id="resourcesBarFiller">
-                <p id="resourcesValue">0</p>
-                <img src="../immagini/goldCoinSymbol.png" id="goldCoin">
+                <p id="resourcesValue">1000</p>
+                <img src="../immagini/goldCoinSymbol.png" id="goldCoin" draggable="false">
             </div>
+
+            <!-- Div equals to  resourcesBarFiller for the opacity background-->
             <div id="opacityBackgroundBarFiller"></div>
 
+            <!-- Div for the filler bar -->
             <div id="progressBar">
                 <div id="progress"></div>
+            </div>
+
+            <!-- Div for the build menu (appears on hammer button click ) -->
+            <div class="gameButtonMenu">
+                <div class="blurBackground">
+                    <div class="sectionBuildMenu"></div>
+                    <div class="sectionBuildMenu"></div>
+                    <div class="sectionBuildMenu"></div>
+                </div>
             </div>
         </center>
     </body>
