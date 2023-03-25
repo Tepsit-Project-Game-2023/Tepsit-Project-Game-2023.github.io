@@ -6,7 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Frozen Village</title>
 
+        <!-- Main Css -->
         <link rel="stylesheet" href="../css/style.css">
+
+        <!-- Css for resources bar -->
+        <link rel="stylesheet" href="../css/resourcesBar.css">
+        <link rel="stylesheet" href="../css/progressBar.css">
+
+        <!-- Css for build and settings -->
+        <link rel="stylesheet" href="../css/gameButtonsImg.css">
+        <link rel="stylesheet" href="../css/gameButtonsDiv.css">
+        <link rel="stylesheet" href="../css/customScrollBar.css">
+
+        <!-- Js for game logic and frameWork -->
         <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
         <script src="../js/script.js"></script>
     </head>
@@ -40,13 +52,39 @@
             </div>
 
             <!-- Div for the build menu (appears on hammer button click ) -->
-            <div class="gameButtonMenu">
+            <div class="gameMenuButton">
                 <div class="blurBackground">
-                    <div class="sectionBuildMenu"></div>
+                    <div class="sectionBuildMenu">
+                        <div class="card">
+                            <img src="../immagini/gameBuilds/basicFactory.png" alt="Basic Factory" class="cardImages" draggable="false">
+                            <div class="description">
+                                <h1 class="titleCards">Basic Factory</h1>
+                                <p class="descrCards">Just the small factory that produces (da decidere)/h</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="../immagini/gameBuilds/basicFactory.png" alt="Basic Factory" class="cardImages" draggable="false">
+                            <div class="description">
+                                <h1 class="titleCards">Basic Factory</h1>
+                                <p class="descrCards">Just the small factory that produces (da decidere)/h</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <img src="../immagini/gameBuilds/basicFactory.png" alt="Basic Factory" class="cardImages" draggable="false">
+                            <div class="description">
+                                <h1 class="titleCards">Basic Factory</h1>
+                                <p class="descrCards">Just the small factory that produces (da decidere)/h</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="sectionBuildMenu"></div>
                     <div class="sectionBuildMenu"></div>
                 </div>
             </div>
+
         </center>
     </body>
 </html>

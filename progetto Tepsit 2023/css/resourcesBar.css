@@ -1,0 +1,42 @@
+#resourcesBarFiller {
+    width: 275px;
+    height: 30px;
+    position: absolute;
+    top: 7%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    border: 3px solid #000;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    z-index: 5;
+}
+
+#opacityBackgroundBarFiller {
+    width: 275px;
+    height: 30px;
+    position: absolute;
+    top: 7%;
+    left: 78.5%;
+    transform: translate(-50%, -50%);
+
+    background-color: #ddd;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+#resourcesValue {
+    -webkit-text-stroke: 1.7pt #000;
+    cursor: default;
+    color: white;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+#goldCoin {
+    width: 30px;
+    height: 30px;
+    padding: 0px 10px;
+}
