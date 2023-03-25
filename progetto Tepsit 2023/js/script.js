@@ -9,6 +9,7 @@ $(document).ready(function () {
     var buildButton = $("#buildButton");
     var resourcesBarFiller = $("#resourcesBarFiller");
     var opacityBackgroundBarFiller = $("#opacityBackgroundBarFiller");
+    var progressBar = $("#progressBar")
     
     //blur the gameContainer on load 
     gameContainer.css("filter", "blur(5px)");
@@ -58,6 +59,7 @@ $(document).ready(function () {
         buildButton.css("opacity", "0");
         resourcesBarFiller.css("opacity", "0");
         opacityBackgroundBarFiller.css("opacity", "0");
+        progressBar.css("opacity", "0");
     }
 
     //show all the game buttons
@@ -74,15 +76,22 @@ $(document).ready(function () {
         opacityBackgroundBarFiller.animate({
             opacity: "0.2",
         }, 500);
+        progressBar.animate({
+            opacity: "1",
+        }, 500);
     }
     
 
-    //game functions
-    var resources = 20000;
+    // game functions
+    var progress = $("#progress");
+    var resources = 10000;
     const RESOURCESMAX = 20000;
 
-    //calculate the resources
-    // function calculatePercentuageFiler () {
-    //     return (resources / RESOURCESMAX) * 100;
-    // }
+    // calculate the resources
+    function calculatePercentuageFiler () {
+        return (resources / RESOURCESMAX) * 100;
+    }
+
+    $("#progress").css("width", calculatePercentuageFiler() + "%");
+
 });
