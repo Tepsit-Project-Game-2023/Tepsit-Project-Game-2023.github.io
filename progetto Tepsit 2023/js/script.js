@@ -82,7 +82,6 @@ $(document).ready(function () {
             opacity: "1",
         }, 500);
     }
-    
 
     // game functions
     var progress = $("#progress");
