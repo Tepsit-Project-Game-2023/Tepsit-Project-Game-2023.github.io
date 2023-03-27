@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); 
+
 .gameMenuButton {
     top: 50%;
     left: 50%;
@@ -32,7 +34,6 @@
 
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     border:1px solid rgba(255, 255, 255, 0.18);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -40,6 +41,18 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    text-align: center;
+}
+
+.titleCard {
+    position: absolute;
+    bottom: 405px;
+    color: #00353b;
+    font-size: 35px;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 100;
+
 }
 
 .card {
@@ -121,4 +134,9 @@
     color: black;
     transition: .5s all;
     cursor: pointer;
+}
+
+.openCloseGameButtonMenu {
+    opacity: "1";
+    z-index: "5";
 }

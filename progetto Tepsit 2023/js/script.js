@@ -10,7 +10,7 @@ $(document).ready(function () {
     var resourcesBarFiller = $("#resourcesBarFiller");
     var opacityBackgroundBarFiller = $("#opacityBackgroundBarFiller");
     var progressBar = $("#progressBar");
-    var gameButtonMenu = $(".gameButtonMenu");
+    var gameMenuButton = $(".gameMenuButton");
     
     //blur the gameContainer on load 
     gameContainer.css("filter", "blur(5px)");
@@ -61,7 +61,7 @@ $(document).ready(function () {
         resourcesBarFiller.css("opacity", "0");
         opacityBackgroundBarFiller.css("opacity", "0");
         progressBar.css("opacity", "0");
-        // gameButtonMenu.css({"opacity": "0", "z-index": "-1"});
+        gameMenuButton.css({"opacity": "0", "z-index": "-1"});
     }
 
     //show all the game buttons
@@ -94,5 +94,9 @@ $(document).ready(function () {
     }
 
     $("#progress").css("width", calculatePercentuageFiler() + "%");
+
+    buildButton.click(function () {
+        gameMenuButton.toggleClass("openCloseGameButtonMenu");
+    });
 
 });

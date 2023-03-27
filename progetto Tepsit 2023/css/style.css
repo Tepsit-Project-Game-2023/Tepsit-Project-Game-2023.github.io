@@ -32,7 +32,7 @@ center {
 #title {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 30%;
     transform: translate(-50%, -50%);
     z-index: 5;
 
