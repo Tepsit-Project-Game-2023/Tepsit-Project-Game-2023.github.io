@@ -85,6 +85,7 @@ $(document).ready(function () {
 
     // game functions
     var progress = $("#progress");
+    var resourcesValue = $("#resourcesValue");
     var resources = 10000;
     const RESOURCESMAX = 20000;
 
@@ -93,10 +94,95 @@ $(document).ready(function () {
         return (resources / RESOURCESMAX) * 100;
     }
 
+    resourcesValue.html(resources);
     $("#progress").css("width", calculatePercentuageFiler() + "%");
 
+    var buildMenu = $("#buildMenu");
+    var openClose = false;
     buildButton.click(function () {
-        gameMenuButton.toggleClass("openCloseGameButtonMenu");
+        if (!openClose) {
+            openBuildMenu();
+            openClose = true;
+        }
+        else {
+            closeBuildMenu();
+            openClose = false;
+        }
+
+        if (openCloseSetting) { //if one menu is already opened close this one and open the clicked one
+            closeSettingMenu();
+            openBuildMenu();
+            openCloseSetting = false;
+            openClose = true;
+        }
     });
 
+    var settingMenu = $("#settingMenu");
+    var openCloseSetting = false;
+    settingButton.click(function () {
+        if (!openCloseSetting) {
+            openSettingMenu();
+            openCloseSetting = true;
+        }
+        else {
+            closeSettingMenu();
+            openCloseSetting = false;
+        }
+
+        if (openClose) {
+            closeBuildMenu();
+            openSettingMenu();
+            openClose = false;
+            openCloseSetting = true;
+        }
+    });
+
+    var buyButton = $(".btn");
+    var smallFactory = $("#smallFactory");
+
+    buyButton.eq(0).click(function () { //build small factory
+        if (!haveEnoughResources(1000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            closeBuildMenu();
+        }
+    });
+    buyButton.eq(1).click(function () {//build medium factory
+        if (!haveEnoughResources(2000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            closeBuildMenu();
+        }
+    });
+
+    buyButton.eq(2).click(function () { //build big factory
+        if (!haveEnoughResources(5000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            closeBuildMenu();
+        }
+    });
+
+    function haveEnoughResources (costs) {
+        return (resources >= costs) ? true : false;
+    }
+
+    function openBuildMenu () {
+        buildMenu.css({"opacity": 1, "z-index": 0});
+    }
+    function closeBuildMenu () {
+        buildMenu.css({"opacity": 0, "z-index": -1});
+    }
+    function openSettingMenu () {
+        settingMenu.css({"opacity": 1, "z-index": 0});
+    }
+    function closeSettingMenu () {
+        settingMenu.css({"opacity": 0, "z-index": -1});  
+    }
 });
