@@ -138,34 +138,49 @@ $(document).ready(function () {
     });
 
     var buyButton = $(".btn");
-    var smallFactory = $("#smallFactory");
-
+    var costSmall = 1000;
     buyButton.eq(0).click(function () { //build small factory
-        if (!haveEnoughResources(1000)) {
+        let smallFactory = $("#smallFactory");
+
+        if (!haveEnoughResources(2500)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
+            let clonedImage = smallFactory.clone().appendTo("body");
             closeBuildMenu();
+            clonedImage.addClass("placeable");
+            
+            addBuildings(clonedImage, 2500);
         }
     });
     buyButton.eq(1).click(function () {//build medium factory
-        if (!haveEnoughResources(2000)) {
+        let midFactory = $("#midFactory");
+        if (!haveEnoughResources(7000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
+            let clonedImage = midFactory.clone().appendTo("body");
             closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 7000);
         }
     });
 
     buyButton.eq(2).click(function () { //build big factory
-        if (!haveEnoughResources(5000)) {
+        let bigFactory = $("#bigFactory");
+        if (!haveEnoughResources(15000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
+            let clonedImage = bigFactory.clone().appendTo("body");
             closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 15000);
         }
     });
 
@@ -174,15 +189,37 @@ $(document).ready(function () {
     }
 
     function openBuildMenu () {
-        buildMenu.css({"opacity": 1, "z-index": 0});
+        buildMenu.css({"opacity": 1, "z-index": 5});
     }
     function closeBuildMenu () {
         buildMenu.css({"opacity": 0, "z-index": -1});
     }
     function openSettingMenu () {
-        settingMenu.css({"opacity": 1, "z-index": 0});
+        settingMenu.css({"opacity": 1, "z-index": 5});
     }
     function closeSettingMenu () {
         settingMenu.css({"opacity": 0, "z-index": -1});  
+    }
+
+    function addBuildings (structure, price) {
+        $(document).on("mousemove", function(event) {
+            var posX = (event.pageX / $(window).width()) * 100;
+            var posY = (event.pageY / $(window).height()) * 100;
+            structure.css({
+              "left": posX + "%",
+              "top": posY + "%"
+            });
+        });
+        gameContainer.click(function () {
+            $(document).off("mousemove");
+        });
+        resources -= price;
+        scaleResources();
+    }
+
+    function scaleResources () {
+        resourcesValue.html(resources);
+        $("#progress").css("width", calculatePercentuageFiler() + "%");
+        return;
     }
 });

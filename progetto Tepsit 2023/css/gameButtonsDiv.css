@@ -11,7 +11,7 @@
     border: 5px solid #111;
     border-radius: 25px;
 
-    overflow-y: scroll;
+    overflow-y: scroll; 
 }
 
 .blurBackground {
@@ -131,6 +131,16 @@
     border-radius: 5px;
     text-decoration: none;
     color: black;
+    text-align: left;
     transition: .5s all;
     cursor: pointer;
+}
+
+.card .info .btn .typoEuros {
+    left: 56%;
+    top: 78%;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+
 }
