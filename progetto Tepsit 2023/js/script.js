@@ -211,6 +211,8 @@ $(document).ready(function () {
             });
         });
         gameContainer.click(function () {
+            // check if the building is placed on the game container
+            //TODO (gaia)
             $(document).off("mousemove");
         });
         resources -= price;
@@ -222,4 +224,7 @@ $(document).ready(function () {
         $("#progress").css("width", calculatePercentuageFiler() + "%");
         return;
     }
+
+    //add npc with random movement
+    //TODO (gaia)
 });
