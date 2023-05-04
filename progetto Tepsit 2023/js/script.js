@@ -138,18 +138,17 @@ $(document).ready(function () {
     });
 
     var buyButton = $(".btn");
-    var costSmall = 1000;
     buyButton.eq(0).click(function () { //build small factory
-        let smallFactory = $("#smallFactory");
-
         if (!haveEnoughResources(2500)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = smallFactory.clone().appendTo("body");
-            closeBuildMenu();
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/basicFactory.png");
             clonedImage.addClass("placeable");
+            clonedImage.appendTo("center");
+            closeBuildMenu();
             
             addBuildings(clonedImage, 2500);
         }
@@ -184,6 +183,21 @@ $(document).ready(function () {
         }
     });
 
+    buyButton.eq(3).click(function () { //build big factory
+        let coffeShop = $("#coffeShop");
+        if (!haveEnoughResources(1000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = coffeShop.clone().appendTo("body");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+        }
+    });
+
     function haveEnoughResources (costs) {
         return (resources >= costs) ? true : false;
     }
@@ -211,6 +225,9 @@ $(document).ready(function () {
             });
         });
         gameContainer.click(function () {
+            // check if the building is placed on the game container
+            //TODO (gaia)
+            structure.attr("pointer-events", "auto");
             $(document).off("mousemove");
         });
         resources -= price;
