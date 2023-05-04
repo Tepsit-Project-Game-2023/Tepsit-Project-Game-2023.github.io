@@ -222,4 +222,9 @@ $(document).ready(function () {
         $("#progress").css("width", calculatePercentuageFiler() + "%");
         return;
     }
+
+    var palle = $(".placeable");
+    palle.click(function () {
+        alert("ciao");
+    });
 });
