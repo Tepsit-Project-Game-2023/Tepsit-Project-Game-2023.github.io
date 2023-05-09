@@ -1,156 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Frozen Village</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frozen Village</title>
 
-        <!-- Main Css -->
-        <link rel="stylesheet" href="../css/style.css">
+    <!-- Main Css -->
+    <link rel="stylesheet" href="../css/style.css" />
 
-        <!-- Css for resources bar -->
-        <link rel="stylesheet" href="../css/resourcesBar.css">
-        <link rel="stylesheet" href="../css/progressBar.css">
+    <!-- Css for resources bar -->
+    <link rel="stylesheet" href="../css/resourcesBar.css" />
+    <link rel="stylesheet" href="../css/progressBar.css" />
 
-        <!-- Css for build and settings -->
-        <link rel="stylesheet" href="../css/gameButtonsImg.css">
-        <link rel="stylesheet" href="../css/gameButtonsDiv.css">
-        <link rel="stylesheet" href="../css/customScrollBar.css">
-        
-        <!-- Css for place building and follow cursor -->
-        <link rel="stylesheet" href="../css/placeObjects.css">
+    <!-- Css for build and settings -->
+    <link rel="stylesheet" href="../css/gameButtonsImg.css" />
+    <link rel="stylesheet" href="../css/gameButtonsDiv.css" />
+    <link rel="stylesheet" href="../css/customScrollBar.css" />
 
-        <!-- Js for game logic and frameWork -->
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-        <script src="../js/script.js"></script>
+    <!-- Css for place building and follow cursor -->
+    <link rel="stylesheet" href="../css/placeObjects.css" />
 
-    </head>
+    <!-- Js for game logic and frameWork -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="../js/script.js"></script>
+  </head>
 
-    <body>
-        <center>
-            <!-- Game container -->
-            <div class="gameContainer"></div>
+  <body>
+    <center>
+      <!-- Game container -->
+      <div class="gameContainer"></div>
 
-            <!-- Main apperance of the page onload -->
-            <!-- (draggable = "false") == you can't drag images, they're locked -->
-            <img src="../immagini/logoDefinitivo.png" id="imgTitle" draggable="false">
-            <h1 id="title">Click to begin</h1>
+      <!-- Main apperance of the page onload -->
+      <!-- (draggable = "false") == you can't drag images, they're locked -->
+      <img src="../immagini/logoDefinitivo.png" id="imgTitle" />
+      <h1 id="title">Click to begin</h1>
 
-            <!-- Images for the game buttons that appears on begin click -->
-            <img src="../immagini/settingsButton.png" id="settingButton" draggable="false">
-            <img src="../immagini/gameHammer.png" id="buildButton" draggable="false">
+      <!-- Images for the game buttons that appears on begin click -->
+      <img src="../immagini/settingsButton.png" id="settingButton" />
+      <img src="../immagini/gameHammer.png" id="buildButton" />
 
-            <!-- Div for the resources w/ only the structure of it (w/out the opaci) -->
-            <div id="resourcesBarFiller">
-                <p id="resourcesValue"></p>
-                <img src="../immagini/goldCoinSymbol.png" id="goldCoin" draggable="false">
+      <!-- Div for the resources w/ only the structure of it (w/out the opaci) -->
+      <div id="resourcesBarFiller">
+        <p id="resourcesValue"></p>
+        <img src="../immagini/goldCoinSymbol.png" id="goldCoin" />
+      </div>
+
+      <!-- Div equals to  resourcesBarFiller for the opacity background-->
+      <div id="opacityBackgroundBarFiller"></div>
+
+      <!-- Div for the filler bar -->
+      <div id="progressBar">
+        <div id="progress"></div>
+      </div>
+
+      <!-- Div for the build menu (appears on hammer button click ) -->
+      <div class="gameMenuButton" id="buildMenu">
+        <div class="blurBackground">
+          <div class="sectionBuildMenu">
+            <h1 class="titleCard">Factories</h1>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/basicFactory.png"
+                draggable="false"
+                id="smallFactory"
+              />
+              <div class="info">
+                <h1>Small Factory</h1>
+                <p>The small factory that produces (da decidere)/h</p>
+                <button class="btn">
+                  2500
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
             </div>
 
-            <!-- Div equals to  resourcesBarFiller for the opacity background-->
-            <div id="opacityBackgroundBarFiller"></div>
-
-            <!-- Div for the filler bar -->
-            <div id="progressBar">
-                <div id="progress"></div>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/midFactory.png"
+                draggable="false"
+                id="midFactory"
+              />
+              <div class="info">
+                <h1>Mid Factory</h1>
+                <p>The mid factory that produces (da decidere)/h</p>
+                <button class="btn">
+                  7000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
             </div>
 
-            <!-- Div for the build menu (appears on hammer button click ) -->
-            <div class="gameMenuButton" id="buildMenu">
-                <div class="blurBackground">
-                    <div class="sectionBuildMenu">
-                        <h1 class="titleCard">Factories</h1>
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/basicFactory.png" draggable="false" id="smallFactory">
-                            <div class="info">
-                                <h1>Small Factory</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">2500 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/bigFactory.png"
+                draggable="false"
+                id="bigFactory"
+              />
+              <div class="info">
+                <h1>Big Factory</h1>
+                <p>The big factory that produces (da decidere)/h</p>
+                <button class="btn">
+                  15000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
 
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/midFactory.png" draggable="false" id="midFactory">
-                            <div class="info">
-                                <h1>Mid Factory</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">7000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/bigFactory.png" draggable="false" id="bigFactory">
-                            <div class="info">
-                                <h1>Big Factory</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">15000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sectionBuildMenu">
-                        <h1 class="titleCard">Shops</h1>
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/coffeHouse.png" draggable="false" id="coffeShop">
-                            <div class="info">
-                                <h1>Coffe Shop</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/pharmacy.png" draggable="false">
-                            <div class="info">
-                                <h1>Pharmacy</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/backery.png" draggable="false">
-                            <div class="info">
-                                <h1>Backery</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sectionBuildMenu">
-                        <h1 class="titleCard">Houses</h1>
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/smallHouse.png" draggable="false">
-                            <div class="info">
-                                <h1>Little house</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/midHouse.png" draggable="false">
-                            <div class="info">
-                                <h1>Big house</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <img src="../immagini/gameBuilds/mansion.png" draggable="false">
-                            <div class="info">
-                                <h1>Little castle</h1>
-                                <p>Just the small factory that produces (da decidere)/h</p>
-                                <button class="btn">1000 <img src="../immagini/goldCoinSymbol.png" draggable="false" class="typoEuros"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="sectionBuildMenu">
+            <h1 class="titleCard">Shops</h1>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/coffeHouse.png"
+                draggable="false"
+                id="coffeShop"
+              />
+              <div class="info">
+                <h1>Coffe Shop</h1>
+                <p>The coffie shop/h</p>
+                <button class="btn">
+                  1000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
             </div>
 
-            <div class="gameMenuButton" id="settingMenu"></div>
-        </center>
-    </body>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/pharmacy.png"
+                draggable="false"
+              />
+              <div class="info">
+                <h1>Pharmacy</h1>
+                <p>The Pharmacy/h</p>
+                <button class="btn">
+                  1000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="../immagini/gameBuilds/backery.png" draggable="false" />
+              <div class="info">
+                <h1>Backery</h1>
+                <p>The Backery/h</p>
+                <button class="btn">
+                  1000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sectionBuildMenu">
+            <h1 class="titleCard">Houses</h1>
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/smallHouse.png"
+                draggable="false"
+              />
+              <div class="info">
+                <h1>Little house</h1>
+                <p>A little house(da decidere)/h</p>
+                <button class="btn">
+                  1200
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img
+                src="../immagini/gameBuilds/midHouse.png"
+                draggable="false"
+              />
+              <div class="info">
+                <h1>Big house</h1>
+                <p>A big house/h</p>
+                <button class="btn">
+                  7000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="../immagini/gameBuilds/mansion.png" draggable="false" />
+              <div class="info">
+                <h1>Little castle</h1>
+                <p>A small castle for the king of the village/h</p>
+                <button class="btn">
+                  19000
+                  <img
+                    src="../immagini/goldCoinSymbol.png"
+                    draggable="false"
+                    class="typoEuros"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gameMenuButton" id="settingMenu"></div>
+    </center>
+  </body>
 </html>

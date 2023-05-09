@@ -146,57 +146,181 @@ $(document).ready(function () {
         else {
             let clonedImage = $(document.createElement("img"));
             clonedImage.attr("src", "../immagini/gameBuilds/basicFactory.png");
-            clonedImage.addClass("placeable");
-            clonedImage.appendTo("center");
+             
+            clonedImage.appendTo(".gameContainer");
             closeBuildMenu();
-            
+            clonedImage.addClass("placeable");
             addBuildings(clonedImage, 2500);
+
+            let call = showInfo();
+
+           let basicFactoryInterval=setInterval(function() {
+                addResources(50);
+            }, 5000);//Add resources after 5s
         }
     });
     buyButton.eq(1).click(function () {//build medium factory
-        let midFactory = $("#midFactory");
         if (!haveEnoughResources(7000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = midFactory.clone().appendTo("body");
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/midFactory.png");
+            clonedImage.appendTo(".gameContainer");
+
             closeBuildMenu();
             clonedImage.addClass("placeable");
-
+            
             addBuildings(clonedImage, 7000);
+            
+            let call = showInfo();
+
+            let midFactoryInterval=setInterval(function() {
+                addResources(100);
+                suca();
+              }, 5000);//Add resources after 10s
         }
     });
 
     buyButton.eq(2).click(function () { //build big factory
-        let bigFactory = $("#bigFactory");
         if (!haveEnoughResources(15000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = bigFactory.clone().appendTo("body");
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/bigFactory.png");
+            clonedImage.appendTo(".gameContainer");
             closeBuildMenu();
             clonedImage.addClass("placeable");
 
             addBuildings(clonedImage, 15000);
+
+            let call = showInfo();
+
+            let bigFactoryInterval=setInterval(function() {
+                addResources(500);
+              }, 5000);
         }
     });
 
-    buyButton.eq(3).click(function () { //build big factory
-        let coffeShop = $("#coffeShop");
+    buyButton.eq(3).click(function () { //build coffee shop
         if (!haveEnoughResources(1000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = coffeShop.clone().appendTo("body");
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/coffeHouse.png");
+            clonedImage.appendTo(".gameContainer");
             closeBuildMenu();
             clonedImage.addClass("placeable");
 
             addBuildings(clonedImage, 1000);
+
+            let call = showInfo();
+
+            let coffeShopInterval=setInterval(function() {
+                addResources(30);
+              }, 10000);
         }
     });
+    buyButton.eq(4).click(function () { //build pharmacy
+        if (!haveEnoughResources(1000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/pharmacy.png");
+            clonedImage.appendTo(".gameContainer");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+
+            let call = showInfo();
+
+            let pharmacyInterval=setInterval(function() {
+                addResources(30);
+              }, 10000);
+        }
+    });
+    buyButton.eq(5).click(function () { //build backery
+        if (!haveEnoughResources(1000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/backery.png");
+            clonedImage.appendTo(".gameContainer");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+
+            let call = showInfo();
+
+            let coffeShopInterval=setInterval(function() {
+                addResources(30);
+              }, 10000);
+        }
+    });
+
+    buyButton.eq(6).click(function () { //build little house
+        if (!haveEnoughResources(1200)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/smallHouse.png");
+            clonedImage.appendTo(".gameContainer");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+          
+            let call = showInfo();
+        }
+    });
+    buyButton.eq(7).click(function () { //build a big house
+        if (!haveEnoughResources(7000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/midHouse.png");
+            clonedImage.appendTo(".gameContainer");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+          
+            let call = showInfo();
+        }
+    });
+    buyButton.eq(8).click(function () { //build a small castle
+        if (!haveEnoughResources(19000)) {
+            alert("You don't have enough resources!!");
+            return;
+        }
+        else {
+            let clonedImage = $(document.createElement("img"));
+            clonedImage.attr("src", "../immagini/gameBuilds/mansion.png");
+            clonedImage.appendTo(".gameContainer");
+            closeBuildMenu();
+            clonedImage.addClass("placeable");
+
+            addBuildings(clonedImage, 1000);
+            
+            let call = showInfo();
+        }
+    });
+
 
     function haveEnoughResources (costs) {
         return (resources >= costs) ? true : false;
@@ -217,21 +341,36 @@ $(document).ready(function () {
 
     function addBuildings (structure, price) {
         $(document).on("mousemove", function(event) {
+            
             var posX = (event.pageX / $(window).width()) * 100;
             var posY = (event.pageY / $(window).height()) * 100;
+
             structure.css({
               "left": posX + "%",
               "top": posY + "%"
             });
+
+            /*left = 435, 436
+            right =  1497 436
+            bottom = 967 774
+            top = 962 99*/
+
+            // let x = event.pageX; 
+            // let y = event.pageY;
+            // console.log(x, y);
+         
         });
         gameContainer.click(function () {
             // check if the building is placed on the game container
             //TODO (gaia)
-            structure.attr("pointer-events", "auto");
-            $(document).off("mousemove");
+             $(document).off("mousemove");
+           
+            return;
         });
         resources -= price;
         scaleResources();
+        
+        return;
     }
 
     function scaleResources () {
@@ -239,9 +378,24 @@ $(document).ready(function () {
         $("#progress").css("width", calculatePercentuageFiler() + "%");
         return;
     }
+    function addResources (value) {
+        resourcesValue.html(resources);
+        if(resources <= RESOURCESMAX - value ){
+            resources+=value;
+            scaleResources();
+         }
+        return;
+    }
 
-    var palle = $(".placeable");
-    palle.click(function () {
-        alert("ciao");
-    });
+    //add npc with random movement
+    //TODO (gaia)
+
+    function showInfo () {
+        $(".placeable").click(function () {
+            let info = $(document.createElement("div"));
+            info.addClass("clickForInfoObjects");
+            info.appendTo(".gameContainer");
+        });
+        return;
+    }
 });
