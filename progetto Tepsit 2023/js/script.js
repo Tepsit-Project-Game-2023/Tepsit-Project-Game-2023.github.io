@@ -139,185 +139,195 @@ $(document).ready(function () {
 
     var buyButton = $(".btn");
     buyButton.eq(0).click(function () { //build small factory
+        let smallFactory = $("#smallFactory");
         if (!haveEnoughResources(2500)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/basicFactory.png");
-             
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = smallFactory.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
+             
+            closeBuildMenu();
             addBuildings(clonedImage, 2500);
 
             let call = showInfo();
 
-           let basicFactoryInterval=setInterval(function() {
+            let basicFactoryInterval = setInterval(function() {
                 addResources(50);
             }, 5000);//Add resources after 5s
         }
     });
     buyButton.eq(1).click(function () {//build medium factory
+        let midFactory = $("#midFactory");
         if (!haveEnoughResources(7000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/midFactory.png");
+            var clonedImage = midFactory.clone();
+            clonedImage.addClass("placeable");
             clonedImage.appendTo(".gameContainer");
 
             closeBuildMenu();
-            clonedImage.addClass("placeable");
-            
             addBuildings(clonedImage, 7000);
             
             let call = showInfo();
 
-            let midFactoryInterval=setInterval(function() {
+            let midFactoryInterval = setInterval(function() {
                 addResources(100);
-                suca();
               }, 5000);//Add resources after 10s
         }
     });
 
     buyButton.eq(2).click(function () { //build big factory
+        let bigFactory = $("#bigFactory");
         if (!haveEnoughResources(15000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/bigFactory.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = bigFactory.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
+            closeBuildMenu();
             addBuildings(clonedImage, 15000);
 
             let call = showInfo();
 
-            let bigFactoryInterval=setInterval(function() {
+            let bigFactoryInterval = setInterval(function() {
                 addResources(500);
               }, 5000);
         }
     });
 
     buyButton.eq(3).click(function () { //build coffee shop
-        if (!haveEnoughResources(1000)) {
+        let coffeShop = $("#coffeShop");
+        if (!haveEnoughResources(1250)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/coffeHouse.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = coffeShop.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
-            addBuildings(clonedImage, 1000);
+            closeBuildMenu();
+            addBuildings(clonedImage, 1250);
 
             let call = showInfo();
 
-            let coffeShopInterval=setInterval(function() {
+            let coffeShopInterval = setInterval(function() {
                 addResources(30);
-              }, 10000);
+              }, 7500);
         }
     });
     buyButton.eq(4).click(function () { //build pharmacy
-        if (!haveEnoughResources(1000)) {
+        let pharmacy = $("#pharmacy");
+        if (!haveEnoughResources(1250)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/pharmacy.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = pharmacy.clone();
             clonedImage.addClass("placeable");
-
-            addBuildings(clonedImage, 1000);
+            clonedImage.appendTo(".gameContainer");
+            
+            closeBuildMenu();
+            addBuildings(clonedImage, 1250);
 
             let call = showInfo();
 
-            let pharmacyInterval=setInterval(function() {
-                addResources(30);
-              }, 10000);
+            let pharmacyInterval = setInterval(function() {
+                addResources(40);
+              }, 7500);
         }
     });
     buyButton.eq(5).click(function () { //build backery
-        if (!haveEnoughResources(1000)) {
+        let backery = $("#backery");
+        if (!haveEnoughResources(1500)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/backery.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = backery.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
-            addBuildings(clonedImage, 1000);
+            closeBuildMenu();
+            addBuildings(clonedImage, 1500);
 
             let call = showInfo();
 
-            let coffeShopInterval=setInterval(function() {
-                addResources(30);
-              }, 10000);
+            let coffeShopInterval = setInterval(function() {
+                addResources(60);
+              }, 7500);
         }
     });
 
     buyButton.eq(6).click(function () { //build little house
-        if (!haveEnoughResources(1200)) {
+        let smallHouse = $("#smallHouse");
+        if (!haveEnoughResources(1700)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/smallHouse.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = smallHouse.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
-            addBuildings(clonedImage, 1000);
+            closeBuildMenu();
+            addBuildings(clonedImage, 1700);
           
             let call = showInfo();
+
+            let smallHouseInterval = setInterval(function() {
+                removeResources(25);
+              } , 7000);
         }
     });
     buyButton.eq(7).click(function () { //build a big house
-        if (!haveEnoughResources(7000)) {
+        let midHouse = $("#midHouse");
+        if (!haveEnoughResources(5000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/midHouse.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = midHouse.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
-            addBuildings(clonedImage, 1000);
+            closeBuildMenu();
+            addBuildings(clonedImage, 5000);
           
             let call = showInfo();
+
+            let midHouseInterval = setInterval(function() {
+                removeResources(60);
+              } , 5000);
         }
     });
     buyButton.eq(8).click(function () { //build a small castle
-        if (!haveEnoughResources(19000)) {
+        let mansion = $("#mansion");
+        if (!haveEnoughResources(15000)) {
             alert("You don't have enough resources!!");
             return;
         }
         else {
-            let clonedImage = $(document.createElement("img"));
-            clonedImage.attr("src", "../immagini/gameBuilds/mansion.png");
-            clonedImage.appendTo(".gameContainer");
-            closeBuildMenu();
+            var clonedImage = mansion.clone();
             clonedImage.addClass("placeable");
+            clonedImage.appendTo(".gameContainer");
 
-            addBuildings(clonedImage, 1000);
+            closeBuildMenu();
+            addBuildings(clonedImage, 15000);
             
             let call = showInfo();
+
+            let mansionInterval = setInterval(function() {
+                removeResources(750);
+              } , 12000);
         }
     });
 
@@ -342,12 +352,12 @@ $(document).ready(function () {
     function addBuildings (structure, price) {
         $(document).on("mousemove", function(event) {
             
-            var posX = (event.pageX / $(window).width()) * 100;
-            var posY = (event.pageY / $(window).height()) * 100;
+            var posX = event.pageX;
+            var posY = event.pageY;
 
             structure.css({
-              "left": posX + "%",
-              "top": posY + "%"
+              "left": posX - 250 + "px",
+              "top": posY + "px"
             });
 
             /*left = 435, 436
@@ -362,9 +372,8 @@ $(document).ready(function () {
         });
         gameContainer.click(function () {
             // check if the building is placed on the game container
-            //TODO (gaia)
              $(document).off("mousemove");
-           
+            
             return;
         });
         resources -= price;
@@ -380,17 +389,27 @@ $(document).ready(function () {
     }
     function addResources (value) {
         resourcesValue.html(resources);
-        if(resources <= RESOURCESMAX - value ){
-            resources+=value;
+        if(resources <= RESOURCESMAX - value ) {
+            resources += value;
             scaleResources();
          }
         return;
     }
+    
+    function removeResources (value) {
+        resourcesValue.html(resources);
+        if(resources - value >= 0){ //if you dont have enough resources to pay you lose
+            resources -= value;
+            scaleResources();
+        }
+        else {
+            alert("Game Over!!!");
+            location.reload();
+        }
+        return;
+    }
 
-    //add npc with random movement
-    //TODO (gaia)
-
-    function showInfo () {
+    function showInfo () { // need to be fixed
         $(".placeable").click(function () {
             let info = $(document.createElement("div"));
             info.addClass("clickForInfoObjects");
@@ -413,7 +432,8 @@ $(document).ready(function () {
         });
         return;
     }
-
+    
+    //TODO add npc with random movement
     //TODO add js to manage click for objects info
-
+    //TODO add function to expand the total coin storage in the castle
 });
