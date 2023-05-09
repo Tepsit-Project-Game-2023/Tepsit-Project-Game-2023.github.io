@@ -87,7 +87,7 @@ $(document).ready(function () {
     var progress = $("#progress");
     var resourcesValue = $("#resourcesValue");
     var resources = 10000;
-    const RESOURCESMAX = 20000;
+    var RESOURCESMAX = 20000;
 
     // calculate the resources
     function calculatePercentuageFiler () {
@@ -395,7 +395,25 @@ $(document).ready(function () {
             let info = $(document.createElement("div"));
             info.addClass("clickForInfoObjects");
             info.appendTo(".gameContainer");
+
+            let infoText = $(document.createElement("div"));
+            infoText.addClass("clickForInfoObjectsText");
+            infoText.html("Click on the object to see the info");
+            infoText.appendTo(info);
+
+            let infoText1 = $(document.createElement("div"));
+            infoText1.addClass("clickForInfoObjectsText");
+            infoText1.html("Click on the object to see the info");
+            infoText1.appendTo(info);
+
+            let infoText2 = $(document.createElement("div"));
+            infoText2.addClass("clickForInfoObjectsText");
+            infoText2.html("Click on the object to see the info");
+            infoText2.appendTo(info);
         });
         return;
     }
+
+    //TODO add js to manage click for objects info
+
 });
