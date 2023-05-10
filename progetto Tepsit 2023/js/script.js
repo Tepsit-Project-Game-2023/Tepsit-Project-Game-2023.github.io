@@ -411,24 +411,33 @@ $(document).ready(function () {
 
     function showInfo () { // need to be fixed
         $(".placeable").click(function () {
-            let info = $(document.createElement("div"));
-            info.addClass("clickForInfoObjects");
-            info.appendTo(".gameContainer");
-
-            let infoText = $(document.createElement("div"));
-            infoText.addClass("clickForInfoObjectsText");
-            infoText.html("Click on the object to see the info");
-            infoText.appendTo(info);
-
-            let infoText1 = $(document.createElement("div"));
-            infoText1.addClass("clickForInfoObjectsText");
-            infoText1.html("Click on the object to see the info");
-            infoText1.appendTo(info);
-
-            let infoText2 = $(document.createElement("div"));
-            infoText2.addClass("clickForInfoObjectsText");
-            infoText2.html("Click on the object to see the info");
-            infoText2.appendTo(info);
+            if ($(this).is("#smallFactory")) { //check what has been clicked then show the corrispondent menu
+                //show menu on click
+            }
+            else if ($(this).is("#midFactory")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#bigFactory")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#coffeShop")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#pharmacy")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#backery")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#smallHouse")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#midHouse")) {
+                alert("ciao");
+            }
+            else if ($(this).is("#mansion")) {
+                alert("ciao");
+            }
         });
         return;
     }
