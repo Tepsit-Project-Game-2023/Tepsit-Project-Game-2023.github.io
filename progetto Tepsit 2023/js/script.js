@@ -16,7 +16,7 @@ $(document).ready(function () {
     gameContainer.css("filter", "blur(5px)");
     //hide all the game buttons
     hideAllGameButtons();
-
+   
     //onclick toogle blur
     gameContainer.click(function () {
         $(this).css("filter", "blur(0px)");
@@ -28,7 +28,9 @@ $(document).ready(function () {
         }, 1000);
 
         showAllGameButtons();
-    });
+    }); 
+    
+
 
     imgTitle.click(function () {
         gameContainer.css("filter", "blur(0px)");
@@ -137,6 +139,8 @@ $(document).ready(function () {
         }
     });
 
+    
+    
     var buyButton = $(".btn");
     buyButton.eq(0).click(function () { //build small factory
         let smallFactory = $("#smallFactory");
@@ -348,19 +352,34 @@ $(document).ready(function () {
     function closeSettingMenu () {
         settingMenu.css({"opacity": 0, "z-index": -1});  
     }
-
+//alert(gameContainer.width()- $(document).width());
     function addBuildings (structure, price) {
+        let posX;
+        let posY;
         $(document).on("mousemove", function(event) {
-            let posX = event.pageX;
-            let posY = event.pageY;
+            
+            posX = event.pageX;
+            posY = event.pageY;
            
             structure.css({
-              "left": posX - 250 + "px",
+              "left": posX -400 + "px",
               "top": posY + "px"
             });
+
+            // console.log((window.innerWidth / posX)* 100);
+            // console.log((window.innerHeight / posY)* 100);
+         
         });     
-        gameContainer.click(function (event) {
-             $(document).off("mousemove");
+        gameContainer.click(function () {
+           
+             
+             if(posX<=($(document).width()-gameContainer.width())/2||posX>($(document).width()-gameContainer.width())/2+gameContainer.width()){
+               alert("Non puoi costruire in questo punto"); 
+             }else{
+                $(document).off("mousemove");
+             }
+             
+
             return;
         });
         resources -= price;
@@ -402,6 +421,11 @@ $(document).ready(function () {
         var node = document.createElement("p");
         
         $(".placeable").click(function () {
+            infoDivGeneral.css({"opacity" : "0", "z-index" : "3"});
+        });
+
+
+        $(".placeable").dblclick(function () {
             if ($(this).is("#smallFactory")) { //check what has been clicked then show the corrispondent menu
                 infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
                 // info.appendChild(node);

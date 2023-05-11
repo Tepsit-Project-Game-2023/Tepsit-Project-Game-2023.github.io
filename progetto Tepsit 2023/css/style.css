@@ -1,5 +1,5 @@
 body {
-    background: #008081;
+    background: #008081 ;
     overflow: hidden;
     font-family: sans-serif;
     user-select: none;
@@ -43,6 +43,43 @@ center {
     animation: pulse 1s infinite;
 }
 
+#settingMenu{
+    backdrop-filter: blur(10px);
+    text-align: left;
+    padding: 20px;
+
+
+}
+#settingMenu h1{
+    text-align: center;;
+    font-size: 50px;
+    font-family: 'Press Start 2P', cursive;
+    color: #00353b;
+
+}
+#settingMenu h4{
+ 
+    padding-top: 20px;
+    font-size: 25px;
+    font-family: 'Press Start 2P', cursive;
+    color: #030f10;
+
+}
+#settingMenu h5{
+ 
+    
+    font-size: 18px;
+    font-family: 'Press Start 2P', cursive;
+    color: #2f3d3e;
+
+}
+#settingMenu p{
+    font-size: 20px;
+    font-family: cursive;
+    border: 3px solid #00353b;
+    border-radius: 20px;
+    padding: 7px;
+}
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -54,3 +91,4 @@ center {
         transform: scale(1);
     }
 }
+

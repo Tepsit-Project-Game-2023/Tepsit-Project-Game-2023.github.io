@@ -29,7 +29,9 @@
   <body>
     <center>
       <!-- Game container -->
-      <div class="gameContainer"></div>
+      <div class="gameContainer">
+      
+      </div>
 
       <!-- Main apperance of the page onload -->
       <!-- (draggable = "false") == you can't drag images, they're locked -->
@@ -163,11 +165,11 @@
             </div>
 
             <div class="card">
-              <img
+              <img 
                 src="../immagini/gameBuilds/backery.png"
-                draggable="false"
+                draggable="false" 
                 id="backery"
-              />
+                />
               <div class="info">
                 <h1>Backery</h1>
                 <p>The Backery that produces 8/s</p>
@@ -226,9 +228,9 @@
             </div>
 
             <div class="card">
-              <img
-                src="../immagini/gameBuilds/mansion.png"
-                draggable="false"
+              <img 
+                src="../immagini/gameBuilds/mansion.png" 
+                draggable="false" 
                 id="mansion"
               />
               <div class="info">
@@ -245,18 +247,30 @@
               </div>
             </div>
           </div>
+          
         </div>
       </div>
 
-      <div class="gameMenuButton" id="settingMenu"></div>
+      <div class="gameMenuButton" id="settingMenu">
+        <h1>Menù Settings</h1>
+       
+        <h4>The purpose of the game</h4>
+          <p>Frozen Village is a game that simulates building a village. You will be able to buy factories and shops that will allow you to get rich, so you will be able to buy houses for which you will regularly pay taxes. Be careful with your savings! If you spend all your money...<b>Game Over!</b></p>
+         <h4>How to play</h4>
+         <h5>Shop</h5>
+         <p>you can access the shop by clicking once on the icon at the bottom right. To close the same window, just click on the same icon again.</p>
+         <h5>Factories and Shops</h5>
+        <p>In the shop you will be able to buy a factory or a shop. These range from cheapest to most expensive. Each shop or factory will regularly give you back a sum of money that will add up to what you already have. Earnings vary by facility.</p>
+        <h5>Houses</h5>
+        <p>In the shop you will be able to buy a house. These range from cheapest to most expensive, you can even buy a small castle! Every homeowner will routinely take money from you to pay taxes and bills. Taxes and bills vary by home.</p>
+       <h5>Buildings</h5>
+        <p>You can place buildings within the terrain area. Double clicking on the building will bring up a menu for information and a button to delete the structure. By clicking once, the informations and the button to delete will disappear.</p>
+      </div>
+
 
       <div class="clickForInfoObjects">
-        <div class="clickForInfoObjectsText" id="infoObjects">
-          <h3>Info</h3>
-        </div>
-        <div class="clickForInfoObjectsText" id="deleteButton">
-          <h3>Delete</h3>
-        </div>
+        <div class="clickForInfoObjectsText" id="infoObjects"><h3>Info</h3></div>
+        <div class="clickForInfoObjectsText" id="deleteButton"><h3>Delete</h3></div>
       </div>
     </center>
   </body>
