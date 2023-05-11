@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #000429, #01074F, #056926);
+    background: #008081;
     overflow: hidden;
     font-family: sans-serif;
     user-select: none;
@@ -13,10 +13,10 @@ center {
 
 .gameContainer {
     position: relative;
-    background-image: url("../immagini/terrenoBase.jpg");
+    background-image: url("../immagini/newGameTerrain.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    width: 75vw;
+    width: 70vw;
     height: 100%;
 }
 

@@ -351,29 +351,16 @@ $(document).ready(function () {
 
     function addBuildings (structure, price) {
         $(document).on("mousemove", function(event) {
-            
-            var posX = event.pageX;
-            var posY = event.pageY;
-
+            let posX = event.pageX;
+            let posY = event.pageY;
+           
             structure.css({
               "left": posX - 250 + "px",
               "top": posY + "px"
             });
-
-            /*left = 435, 436
-            right =  1497 436
-            bottom = 967 774
-            top = 962 99*/
-
-            // let x = event.pageX; 
-            // let y = event.pageY;
-            // console.log(x, y);
-         
-        });
-        gameContainer.click(function () {
-            // check if the building is placed on the game container
+        });     
+        gameContainer.click(function (event) {
              $(document).off("mousemove");
-            
             return;
         });
         resources -= price;
@@ -410,9 +397,16 @@ $(document).ready(function () {
     }
 
     function showInfo () { // need to be fixed
+        var infoDivGeneral= $(".clickForInfoObjects");
+        var info= $(".clickForInfoObjectsText");
+        var node = document.createElement("p");
+        
         $(".placeable").click(function () {
             if ($(this).is("#smallFactory")) { //check what has been clicked then show the corrispondent menu
-                //show menu on click
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                // info.appendChild(node);
+                // var textnode =  document.createTextNode("The small factory that produces 5/s");
+                // node.appendChild(textnode);
             }
             else if ($(this).is("#midFactory")) {
                 alert("ciao");
