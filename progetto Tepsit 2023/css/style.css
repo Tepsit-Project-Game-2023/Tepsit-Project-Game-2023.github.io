@@ -3,7 +3,6 @@ body {
     overflow: hidden;
     font-family: sans-serif;
     user-select: none;
-    
 }
 
 center {
@@ -43,43 +42,46 @@ center {
     animation: pulse 1s infinite;
 }
 
-#settingMenu{
+#settingMenu {
     backdrop-filter: blur(10px);
     text-align: left;
-    padding: 20px;
-
-
+    padding: 17px;
+    overflow: hidden;
 }
-#settingMenu h1{
-    text-align: center;;
-    font-size: 50px;
+
+#settingMenu h1 {
+    text-align: center;
+    font-size: 45px;
     font-family: 'Press Start 2P', cursive;
     color: #00353b;
-
 }
-#settingMenu h4{
- 
-    padding-top: 20px;
-    font-size: 25px;
+
+#settingMenu h4 {
+    padding-top: 15px;
+    font-size: 23px;
     font-family: 'Press Start 2P', cursive;
     color: #030f10;
-
 }
-#settingMenu h5{
- 
-    
-    font-size: 18px;
+
+#settingMenu h5 {
+    font-size: 16px;
     font-family: 'Press Start 2P', cursive;
     color: #2f3d3e;
-
 }
-#settingMenu p{
-    font-size: 20px;
+
+#settingMenu p {
+    font-size: 18px;
     font-family: cursive;
-    border: 3px solid #00353b;
+    
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
     border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
     padding: 7px;
 }
+
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -91,4 +93,3 @@ center {
         transform: scale(1);
     }
 }
-

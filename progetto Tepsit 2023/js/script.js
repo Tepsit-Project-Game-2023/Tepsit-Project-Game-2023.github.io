@@ -30,8 +30,6 @@ $(document).ready(function () {
         showAllGameButtons();
     }); 
     
-
-
     imgTitle.click(function () {
         gameContainer.css("filter", "blur(0px)");
         $(this).fadeOut({
@@ -88,7 +86,7 @@ $(document).ready(function () {
     // game functions
     var progress = $("#progress");
     var resourcesValue = $("#resourcesValue");
-    var resources = 10000;
+    var resources = 10000; //starting resources
     var RESOURCESMAX = 20000;
 
     // calculate the resources
@@ -97,7 +95,7 @@ $(document).ready(function () {
     }
 
     resourcesValue.html(resources);
-    $("#progress").css("width", calculatePercentuageFiler() + "%");
+    progress.css("width", calculatePercentuageFiler() + "%");
 
     var buildMenu = $("#buildMenu");
     var openClose = false;
@@ -139,8 +137,7 @@ $(document).ready(function () {
         }
     });
 
-    
-    
+
     var buyButton = $(".btn");
     buyButton.eq(0).click(function () { //build small factory
         let smallFactory = $("#smallFactory");
@@ -161,6 +158,10 @@ $(document).ready(function () {
             let basicFactoryInterval = setInterval(function() {
                 addResources(50);
             }, 5000);//Add resources after 5s
+
+            choice.eq(1).on("click", function () {
+                clearInterval(basicFactoryInterval);
+            });
         }
     });
     buyButton.eq(1).click(function () {//build medium factory
@@ -182,6 +183,10 @@ $(document).ready(function () {
             let midFactoryInterval = setInterval(function() {
                 addResources(100);
               }, 5000);//Add resources after 10s
+
+            choice.eq(1).on("click", function () {
+                clearInterval(midFactoryInterval);
+            });
         }
     });
 
@@ -204,6 +209,10 @@ $(document).ready(function () {
             let bigFactoryInterval = setInterval(function() {
                 addResources(500);
               }, 5000);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(bigFactoryInterval);
+            });
         }
     });
 
@@ -226,6 +235,10 @@ $(document).ready(function () {
             let coffeShopInterval = setInterval(function() {
                 addResources(30);
               }, 7500);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(coffeShopInterval);
+            });
         }
     });
     buyButton.eq(4).click(function () { //build pharmacy
@@ -247,6 +260,10 @@ $(document).ready(function () {
             let pharmacyInterval = setInterval(function() {
                 addResources(40);
               }, 7500);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(pharmacyInterval);
+            });
         }
     });
     buyButton.eq(5).click(function () { //build backery
@@ -268,6 +285,10 @@ $(document).ready(function () {
             let coffeShopInterval = setInterval(function() {
                 addResources(60);
               }, 7500);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(coffeShopInterval);
+            });
         }
     });
 
@@ -290,6 +311,10 @@ $(document).ready(function () {
             let smallHouseInterval = setInterval(function() {
                 removeResources(25);
               } , 7000);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(smallHouseInterval);
+            });
         }
     });
     buyButton.eq(7).click(function () { //build a big house
@@ -311,6 +336,10 @@ $(document).ready(function () {
             let midHouseInterval = setInterval(function() {
                 removeResources(60);
               } , 5000);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(midHouseInterval);
+            });
         }
     });
     buyButton.eq(8).click(function () { //build a small castle
@@ -332,6 +361,10 @@ $(document).ready(function () {
             let mansionInterval = setInterval(function() {
                 removeResources(750);
               } , 12000);
+
+            choice.eq(1).on("click", function () {
+                clearInterval(mansionInterval);
+            });
         }
     });
 
@@ -352,7 +385,7 @@ $(document).ready(function () {
     function closeSettingMenu () {
         settingMenu.css({"opacity": 0, "z-index": -1});  
     }
-//alert(gameContainer.width()- $(document).width());
+
     function addBuildings (structure, price) {
         let posX;
         let posY;
@@ -362,24 +395,18 @@ $(document).ready(function () {
             posY = event.pageY;
            
             structure.css({
-              "left": posX -400 + "px",
+              "left": posX - 270 + "px",
               "top": posY + "px"
-            });
-
-            // console.log((window.innerWidth / posX)* 100);
-            // console.log((window.innerHeight / posY)* 100);
-         
+            });                                                    
         });     
         gameContainer.click(function () {
-           
-             
-             if(posX<=($(document).width()-gameContainer.width())/2||posX>($(document).width()-gameContainer.width())/2+gameContainer.width()){
+             if(posX <= ($(document).width() - gameContainer.width()) / 2  ||  
+                posX > ($(document).width() - gameContainer.width()) / 2 + gameContainer.width()) {
                alert("Non puoi costruire in questo punto"); 
-             }else{
+             }
+             else{
                 $(document).off("mousemove");
              }
-             
-
             return;
         });
         resources -= price;
@@ -410,57 +437,159 @@ $(document).ready(function () {
         }
         else {
             alert("Game Over!!!");
-            location.reload();
         }
         return;
     }
 
-    function showInfo () { // need to be fixed
-        var infoDivGeneral= $(".clickForInfoObjects");
-        var info= $(".clickForInfoObjectsText");
-        var node = document.createElement("p");
-        
-        $(".placeable").click(function () {
-            infoDivGeneral.css({"opacity" : "0", "z-index" : "3"});
-        });
+    var infoDivGeneral= $(".clickForInfoObjects");
+    var infoForObjects = $("#infoForObjects");
+    var deleteMenuObjects = $("#deleteMenuObjects");
 
+    var removeId;
 
+    function showInfo () {
         $(".placeable").dblclick(function () {
+            removeId = $(this).attr("id");
+
+            upgradeButton.hide();
+
             if ($(this).is("#smallFactory")) { //check what has been clicked then show the corrispondent menu
                 infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
-                // info.appendChild(node);
-                // var textnode =  document.createTextNode("The small factory that produces 5/s");
-                // node.appendChild(textnode);
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1 style="font-family: "Press Start 2P", cursive;">Small Factory</h1> <p style="color:#030f10;">A fantastic factory, just a little small buit its good to start the game!!!</p> <p style="color: #030f10;">It produces about 5 coins a second, and you will receive your payment every 5 seconds!!!</p></div>')
             }
             else if ($(this).is("#midFactory")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1 style="font-family: "Press Start 2P", cursive;">Medium Factory</h1> <p style="color:#030f10;">A great factory,we are starting to get richer, that really good</p> <p style="color: #030f10;">It produces about 10 coins a second, and you will receive your payment every 5 seconds!!!</p></div>');
             }
             else if ($(this).is("#bigFactory")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Big Factory</h1> <p style="color:#030f10;">A perfect factory, now we can really consider us rich!!</p> <p style="color: #030f10;">It produces about 100 coins a second, and you will receive your payment every 5 seconds!!!</p> </div>')
             }
             else if ($(this).is("#coffeShop")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Coffe Shop</h1> <p style="color:#030f10;">Really chill place, that you cam earn from it too!!!</p> <p style="color: #030f10;">It produces about 4 coins a second, and you will receive your payment every 7.5 seconds!!!</p> </div>')
             }
             else if ($(this).is("#pharmacy")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Pharmacy</h1> <p style="color:#030f10;">Another store that is pretty useless considering that this city has no people</p> <p style="color: #030f10;">It produces about 5 coins a second, and you will receive your payment every 7.5 seconds!!!</p></div>')
             }
             else if ($(this).is("#backery")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Backery</h1> <p style="color:#030f10;">From this store you can buy delicious food, if someone where there to make it -_-</p> <p style="color: #030f10;">It produces about 8 coins a second, and you will receive your payment every 7.5 seconds!!!</p> </div>')
             }
             else if ($(this).is("#smallHouse")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"><h1>Small House</h1><p style="color:#030f10;">A little comfy house that can host up to 5 people, unfortunately this is a ghost city -_-</p><p style="color: #030f10;">It costs about 3.5 coins a second, and you will pay your payment every 7 seconds!!!</p></div>');
             }
             else if ($(this).is("#midHouse")) {
-                alert("ciao");
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Medium House</h1> <p style="color:#030f10;">A bigger and more comfortable house</p> <p style="color: #030f10;">It costs about 12 coins a second, and you will pay your payment every 5 seconds!!!</p></div>')
             }
             else if ($(this).is("#mansion")) {
-                alert("ciao");
+                upgradeButton.show();
+                infoDivGeneral.css({"opacity" : "1", "z-index" : "3"});
+                infoForObjects.contents().not("button").remove();
+                infoForObjects.append('<div style="text-align: center; color:#222; font-weight: bold;"> <h1>Mansion</h1> <p style="color:#030f10;">The most luxurious home you can own, only few people were able to own this castle</p> <p style="color: #030f10;">It costs about 62.5 coins a second, and you will pay your payment every 12 seconds!!!</p> </div>');
             }
+
+            $(".placeable").click(function () {
+                infoDivGeneral.css({"opacity" : "0", "z-index" : "-1"});
+            });
         });
         return;
     }
-    
-    //TODO add npc with random movement
-    //TODO add js to manage click for objects info
-    //TODO add function to expand the total coin storage in the castle
+
+    var infoObjects = $("#infoObjects");
+    var deleteButton = $("#deleteButton");
+    var closeMenu = $(".closeMenu");
+    var choice = $(".choice");
+
+    infoObjects.click(function () {
+        infoForObjects.css({"opacity" : "1", "z-index" : "100"});
+    });
+
+    deleteButton.click(function () {
+        deleteMenuObjects.css({"opacity" : "1", "z-index" : "100"});
+
+        choice.eq(0).click (closeAll);
+
+        choice.eq(1).click(function () {
+            var id =  $("#" + removeId);
+
+            if (id.hasClass("placeable") && removeId === "smallFactory") {
+                id.remove();
+                addResources(1250);
+            }
+            else if (id.hasClass("placeable") && removeId === "midFactory") {
+                id.remove();
+                addResources(3500);
+            }
+            else if (id.hasClass("placeable") && removeId === "bigFactory") {
+                id.remove();
+                addResources(7500);
+            }
+            else if (id.hasClass("placeable") && removeId === "coffeShop") {
+                id.remove();
+                addResources(625);
+            }
+            else if (id.hasClass("placeable") && removeId === "pharmacy") {
+                id.remove();
+                addResources(625);
+            }
+            else if (id.hasClass("placeable") && removeId === "backery") {
+                id.remove();
+                addResources(750);
+            }
+            else if (id.hasClass("placeable") && removeId === "smallHouse") {
+                id.remove();
+                addResources(850);
+            }
+            else if (id.hasClass("placeable") && removeId === "midHouse") {
+                id.remove();
+                addResources(2500);
+            }
+            else if (id.hasClass("placeable") && removeId === "mansion") {
+                id.remove();
+                addResources(7500);
+            }
+
+            closeAll();
+        });
+    });
+
+    closeMenu.click(closeAll);
+
+    function closeAll () {
+        infoDivGeneral.css({"opacity" : "0", "z-index" : "-1"});
+        infoForObjects.css({"opacity" : "0", "z-index" : "-1"});
+        deleteMenuObjects.css({"opacity" : "0", "z-index" : "-1"});
+        upgradeMenu.css({"opacity" : "0", "z-index" : "-1"});
+    }
+
+    var upgradeButton = $("#upgradeButton");
+    var upgradeMenu = $("#upgradeMenu");
+    var choiceUpgrade = $(".choiceUpgrade");
+
+    var firstUp = 7500;
+
+    upgradeButton.click(function () {
+        upgradeMenu.css({"opacity" : "1", "z-index" : "100"});
+
+        choiceUpgrade.eq(0).click(closeAll);
+
+        choiceUpgrade.eq(1).click (function () {
+            removeResources(firstUp);
+            RESOURCESMAX += 10000;
+            closeAll();
+        });
+    });
+
 });

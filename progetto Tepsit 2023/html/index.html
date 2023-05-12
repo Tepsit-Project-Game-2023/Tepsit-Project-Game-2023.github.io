@@ -21,6 +21,9 @@
     <!-- Css for place building and follow cursor -->
     <link rel="stylesheet" href="../css/placeObjects.css" />
 
+    <!-- Css for dimension of the placed objects -->
+    <link rel="stylesheet" href="../css/dimensionObjects.css" />
+
     <!-- Js for game logic and frameWork -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="../js/script.js"></script>
@@ -45,7 +48,7 @@
       <!-- Div for the resources w/ only the structure of it (w/out the opaci) -->
       <div id="resourcesBarFiller">
         <p id="resourcesValue"></p>
-        <img src="../immagini/goldCoinSymbol.png" id="goldCoin" />
+        <img src="../immagini/goldCoinSymbol.png" id="goldCoin" draggable="false" />
       </div>
 
       <!-- Div equals to  resourcesBarFiller for the opacity background-->
@@ -109,7 +112,7 @@
               />
               <div class="info">
                 <h1>Big Factory</h1>
-                <p>The big factory that produces 50/s</p>
+                <p>The big factory that produces 100/s</p>
                 <button class="btn">
                   15000
                   <img
@@ -253,12 +256,12 @@
 
       <div class="gameMenuButton" id="settingMenu">
         <h1>Menù Settings</h1>
-       
+        
         <h4>The purpose of the game</h4>
           <p>Frozen Village is a game that simulates building a village. You will be able to buy factories and shops that will allow you to get rich, so you will be able to buy houses for which you will regularly pay taxes. Be careful with your savings! If you spend all your money...<b>Game Over!</b></p>
          <h4>How to play</h4>
          <h5>Shop</h5>
-         <p>you can access the shop by clicking once on the icon at the bottom right. To close the same window, just click on the same icon again.</p>
+         <p>You can access the shop by clicking once on the icon at the bottom right. To close the same window, just click on the same icon again.</p>
          <h5>Factories and Shops</h5>
         <p>In the shop you will be able to buy a factory or a shop. These range from cheapest to most expensive. Each shop or factory will regularly give you back a sum of money that will add up to what you already have. Earnings vary by facility.</p>
         <h5>Houses</h5>
@@ -267,11 +270,38 @@
         <p>You can place buildings within the terrain area. Double clicking on the building will bring up a menu for information and a button to delete the structure. By clicking once, the informations and the button to delete will disappear.</p>
       </div>
 
-
       <div class="clickForInfoObjects">
-        <div class="clickForInfoObjectsText" id="infoObjects"><h3>Info</h3></div>
-        <div class="clickForInfoObjectsText" id="deleteButton"><h3>Delete</h3></div>
+        <img class="clickForInfoObjectsText" id="infoObjects" src="../immagini/icongame.png" draggable="false">
+        <img class="clickForInfoObjectsText" id="deleteButton" src="../immagini/deleteButtonObjects.png" draggable="false">
+        <img class="clickForInfoObjectsText" id="upgradeButton" src="../immagini/upgradeButton.png" draggable="false">
       </div>
+
+      <div id="infoForObjects">
+        <button class="closeMenu">X</button>
+      </div>
+
+      <div id="deleteMenuObjects">
+        <button class="closeMenu">X</button>
+        <h1>Are you sure you want to destroy your object?</h1>
+        <h4>We will give you back 50% of the value</h4>
+        <div class="choices">
+          <button class="choice">NO</button>
+          <button class="choice">YES</button>
+        </div>
+      </div>
+
+      <div id="upgradeMenu">
+        <button class="closeMenu">X</button>
+        <h1>Are you sure you want to upgrade your storage?</h1>
+        <div id="moneyUp">
+          <h4>(+10000)</h4>
+        </div>
+        <div class="choices">
+          <button class="choiceUpgrade">0000 <img src="../immagini/goldCoinSymbol.png" draggable="false"></button>
+          <button class="choiceUpgrade">7500 <img src="../immagini/goldCoinSymbol.png" draggable="false"></button>
+        </div>
+      </div>
+      
     </center>
   </body>
 </html>
